@@ -8,7 +8,6 @@ public class Customer {
     protected float usage;
     private final int BASIC;
 
-    // 생성자
     public Customer(String name, String waterNo, Type type) {
         this.name = name;
         this.waterNo = waterNo;
@@ -17,7 +16,7 @@ public class Customer {
         this.BASIC = 1200;
     }
 
-    // 사용량 입력
+   
     protected void inputData() throws IOException {
         Scanner keyboard = new Scanner(System.in);
         while (true) {
@@ -33,24 +32,24 @@ public class Customer {
         }
     }
 
-    // 사용 요금
+  
     protected int fee() {
         int use = (int) (usage + 0.5f);
         return BASIC + (use * type.getUnitPrice());
     }
 
-    // 세금
+ 
     protected int tax() {
         int tax = (int) (fee() * (type.getTaxRate() / 100));
         return (tax / 10) * 10;
     }
 
-    // 총 청구금액
+    
     protected int charge() {
         return fee() + tax();
     }
 
-    // 출력 (수정 완료!)
+  
     @Override
     public String toString() {
         return String.format("%6s %-5s %4s %,8.2f\u33A5 %,7d원 %,6d원 %,7d원 %s",

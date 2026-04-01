@@ -3,7 +3,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        // ✅ Type 생성자: (이름, 단가, 세율) 로 맞춰야 함
+    
         Type[] types = new Type[]{
                 new Type("", 0, 0.0f),          // 0번 (안씀)
                 new Type("가정용", 40, 5.0f),   // 1번
@@ -13,7 +13,7 @@ public class Main {
                 new Type("군기관", 20, 0.0f)    // 5번
         };
 
-        // ✅ Customer 생성자: (이름, waterNo, Type)
+      
         Customer[] customers = new Customer[]{
                 new Customer("홍길동", "1365", types[1]),
                 new Customer("이대한", "5678", types[4]),

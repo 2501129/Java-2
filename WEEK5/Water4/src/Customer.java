@@ -8,7 +8,7 @@ public class Customer {
     protected float usage;
     private final int BASIC = 1200;
 
-    // 생성자: (이름, 수도번호, 타입) → PPT Main에서 정확히 이렇게 호출함
+    
     public Customer(String name, String waterNo, Type type) {
         this.name = name;
         this.waterNo = waterNo;
@@ -16,7 +16,7 @@ public class Customer {
         this.usage = 0.0f;
     }
 
-    // ✅ inputData: Scanner를 매개변수로 받아서 WaterOffice와 호환
+    
     public void inputData(Scanner scanner) throws IOException {
         while (true) {
             System.out.printf("[%s] %s님의 수도 사용량을 입력하세요: ",
@@ -31,24 +31,24 @@ public class Customer {
         }
     }
 
-    // 요금 계산
+   
     public int fee() {
         int use = (int) (usage + 0.5f); // 반올림
         return BASIC + (use * type.getUnitPrice());
     }
 
-    // 세금 계산
+   
     public int tax() {
         int tax = (int) (fee() * (type.getTaxRate() / 100));
         return (tax / 10) * 10; // 10원 단위 절삭
     }
 
-    // 총 청구금액
+   
     public int charge() {
         return fee() + tax();
     }
 
-    // 출력 (PPT와 완전 일치)
+   
     @Override
     public String toString() {
         return String.format("%6s %-6s %4s %,8.2f\u33A5 %,7d원 %,6d원 %,7d원 %s",
